@@ -7,7 +7,7 @@ pub struct Logger;
 
 impl Logger {
     //I have no idea what this function does (I mean I do know it gets home dir and creating the logs file),
-    //  my friend wrote this whole entire file and just talled me how to call it
+    //  my friend wrote this whole entire file and just told me how to call it
     pub fn log(file_path: &str, message: &str) -> Result<()> {
         let path = if let Some(stripped) = file_path.strip_prefix("~/") {
             let mut home = home_dir().ok_or_else(|| {
