@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+user@user-PC:/dev/shm$ #using SHared-Memory to prevent IO bottelnecks
+>>>>>>> c3a6588f8096eee8fd261d70d442f95c4ed8c491
 user@user-PC:/dev/shm$ #round 1 - ASCII-only name
 user@user-PC:/dev/shm$ ls -A
 user@user-PC:/dev/shm$ time optimized-rtouch test
@@ -23,6 +27,10 @@ user@user-PC:/dev/shm$ time touch 1234567890
 
 real	0m0.002s
 user	0m0.001s
+<<<<<<< HEAD
+=======
+sys   0m0.002s
+>>>>>>> c3a6588f8096eee8fd261d70d442f95c4ed8c491
 user@user-PC:/dev/shm$ #IDK how 0.002 + 0.001 is 0.002
 user@user-PC:/dev/shm$ #but nevermind - it's a tie (however it's probably because of the in-accuraty of floating numbers)
 user@user-PC:/dev/shm$ #round 3 - combining round 1 and 2
@@ -54,4 +62,7 @@ real	0m0.002s
 user	0m0.000s
 sys	0m0.002s
 user@user-PC:/dev/shm$ #haha R-touch WINs!!!
+<<<<<<< HEAD
 user@user-PC:/dev/shm$ #2-0 (but basically 4-0, but floating-numbers' in-accuraty has made some problems...)
+=======
+>>>>>>> c3a6588f8096eee8fd261d70d442f95c4ed8c491
