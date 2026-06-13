@@ -8,9 +8,7 @@ pub enum Action {
 impl Action {
     pub fn new(path: &str) -> Self {
         // returns Action
-        println!(
-            "'{path}' is a directory. Do you want the program to delete the directory and replace it with the file? (y/n)" //asking the user to accept the replacing action
-        );
+        println!("'{path}' is a directory. Do you want the R-touch to delete the directory and replace it with the file? (y/n)"); //asking the user to accept the replacing action
         let mut input = String::new();
         io::stdin()
             .read_line(&mut input)
