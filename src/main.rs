@@ -3,7 +3,7 @@ use std::{
     env,
     fs::{self, File},
 };
-mod log {
+mod log { // log folder
     pub mod logger; //the logging logic (src/log/logger.rs)
     pub mod logmgr; //log manager, makes logging much easier (src/log/logmgr.rs)
 }
@@ -28,9 +28,9 @@ fn main() {
         //if created a file in a regular path (in an existing dir) and didn't run with --no-log
 
         log::logmgr::log_manager(&format!("File Created: {path}"));
-    } else {
-        //if DID create the folder
-        if should_log {
+    } else { //if DID create the folder
+        //do nothing
+        if should_log { //unless should log 
             log::logmgr::log_manager(&format!("File & parent folder created: {path}"))
         };
     }
@@ -42,7 +42,7 @@ fn gen_path(args: &[String]) -> Result<(&str, bool, bool), String> {
     }
 
     let mut create_parents = false;
-    let mut path = "";
+    let mut path ="";
     let mut should_log: bool = true;
     for arg in args.iter().skip(1) {
         //check if has got any arguments
@@ -88,10 +88,10 @@ fn create(path: &str, create_parents: bool) -> Result<(), String> {
         //if passed an existinng dir
         replace_dir::replace(path).map_err(|e| format!("Failed to replace directory: {e}"))?; // maiking an own-costumed Error
 
-    // FIX: Removed the duplicate `File::create` that was here in your original code,
+    // FIX: Removed the duplicate `File::create`
     // since the `replace` function already handles creating the file if the user confirms with 'y'.
     } else {
-        // FIX: This block solves the main issue.
+        // FIX: This block solves the main issue
         // If the path is not an existing directory (the standard case for creating a new file),
         // the code falls into this block and creates the file safely on the disk.
         File::create(path).map_err(|e| format!("Failed to create file: {e}"))?;
